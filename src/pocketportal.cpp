@@ -41,8 +41,8 @@ public:
 
        if (sConfigMgr->GetBoolDefault("PocketPortal.Enable", true))
        {
-         player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Pocket Portal", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 1);
-         player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
+         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Pocket Portal", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF +1);
+         SendGossipMenuFor(player, DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
        }
        return false; // Cast the spell on use normally
     }
@@ -64,7 +64,7 @@ void OnGossipSelect(Player* player, Item* /*item*/, uint32 /*sender*/, uint32 ac
                 }
 
                 SummonTempNPC(player, vendorId, salute.c_str());
-                player->CLOSE_GOSSIP_MENU();
+                CloseGossipMenuFor(player);
                 break;
             }
 			
@@ -84,14 +84,14 @@ void OnGossipSelect(Player* player, Item* /*item*/, uint32 /*sender*/, uint32 ac
         Creature* npc = player->SummonCreature(entry, player->GetPositionX(), player->GetPositionY(), player->GetPositionZ(), 0, TEMPSUMMON_TIMED_DESPAWN_OUT_OF_COMBAT, npcDuration);
         npc->SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NON_ATTACKABLE);
         npc->GetMotionMaster()->MoveFollow(player, PET_FOLLOW_DIST, player->GetFollowAngle());
-        npc->setFaction(player->getFaction());
+        npc->SetFaction(player->GetFaction());
 
 		if (salute && !(salute[0] == '\0'))
-            npc->MonsterWhisper(salute, player, false);
+            npc->Whisper(salute, LANG_UNIVERSAL, player , false);
     }
 };
 
-void AddSC_pocket_portal()
+void Addpocket_portalScripts()
 {
     new pocket_portal();
 }
