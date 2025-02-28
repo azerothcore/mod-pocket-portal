@@ -173,9 +173,13 @@ WHERE
 --
 -- --------------------------------------------------------------------------------------
 DELETE FROM `creature_template` WHERE (`entry`=@ENTRY);
-INSERT INTO creature_template (`entry`, `modelid1`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `Healthmodifier`, `Manamodifier`, `Armormodifier`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `damagemodifier`, `unit_class`, `unit_flags`, `type`, `type_flags`, `RegenHealth`, `flags_extra`, `AiName`) VALUES
-(128, '30076', "Pocket Portal", "", 'Directions', '50000', 80, 83, 1.56, 1.56, 1.56, 35, 3, 1, 1.14286, @SCALE, 1, 1, 1, 2, 7, 138936390, 1, 2, 'SmartAI');
+INSERT INTO creature_template (`entry`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `Healthmodifier`, `Manamodifier`, `Armormodifier`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `damagemodifier`, `unit_class`, `unit_flags`, `type`, `type_flags`, `RegenHealth`, `flags_extra`, `AiName`) VALUES
+(@ENTRY, "Pocket Portal", "", 'Directions', 50000, 80, 83, 1.56, 1.56, 1.56, 35, 3, 1, 1.14286, @SCALE, 1, 1, 1, 2, 7, 138936390, 1, 2, 'SmartAI');
 
+-- NPC MODEL
+DELETE FROM `creature_template_model` WHERE `CreatureID` = @Entry;
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
+(@ENTRY, 0, 30076, 1, 1, 0);
 
 -- creatture_template_movement
 DELETE FROM `creature_template_movement` WHERE `CreatureId` IN (@ENTRY);
@@ -185,7 +189,7 @@ INSERT INTO `creature_template_movement` (`CreatureId`, `Ground`, `Swim`, `Fligh
 -- --------------------------------------------------------------------------------------
 -- Update Creature SmartAI
 -- --------------------------------------------------------------------------------------
-UPDATE creature_template SET AIName="SmartAI" WHERE entry=128 LIMIT 1;
+UPDATE creature_template SET AIName="SmartAI" WHERE entry=@ENTRY LIMIT 1;
 
 -- --------------------------------------------------------------------------------------
 -- Give the creature a few items
