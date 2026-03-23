@@ -48,8 +48,7 @@ SET @NOTE        := "Personal Teleporter";
 --
 -- --------------------------------------------------------------------------------------
 DELETE FROM `creature_template` WHERE (`entry`=@ENTRY);
-INSERT INTO `creature_template` (`entry`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `Healthmodifier`, `Manamodifier`, `Armormodifier`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `damagemodifier`, `unit_class`, `unit_flags`, `type`, `type_flags`, `RegenHealth`, `flags_extra`, `AiName`) VALUES
-(@ENTRY, @NAME_NPC, "", 'Directions', @GOSSIP_MENU, 60, 60, 1.56, 1.56, 1.56, 35, 3, 1, 1.14286, @SCALE, 1, 1, 1, 2, 7, 138936390, 1, 2, 'SmartAI');
+INSERT INTO `creature_template` (`entry`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `Healthmodifier`, `Manamodifier`, `Armormodifier`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `rank`, `damagemodifier`, `unit_class`, `unit_flags`, `type`, `type_flags`, `RegenHealth`, `flags_extra`, `AiName`) VALUES(@ENTRY, @NAME_NPC, "", 'Directions', @GOSSIP_MENU, 60, 60, 1.56, 1.56, 1.56, 35, 3, 1, 1.14286, 1, 1, 1, 2, 7, 138936390, 1, 2, 'SmartAI');
 
 DELETE FROM `smart_scripts` WHERE (`entryorguid`=@ENTRY) AND (`source_type`=@SOURCETYPE) AND (`id` = @SSID);
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
