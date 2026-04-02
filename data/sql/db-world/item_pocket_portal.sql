@@ -459,3 +459,27 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@ENTRY, 0, 135, 0, 62, 0, 100, 0, @ACTION_MENU +16, 4, 0, 0, 62, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, -6583.62, -3486.57, 318.362, 0.49825, "Dead King's Crypt"),
 (@ENTRY, 0, 138, 0, 62, 0, 100, 0, @ACTION_MENU +16, 5, 0, 0, 62, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, -745.952, -989.286, 194.098, 2.01729, "Honor's Stand"),
 (@ENTRY, 0, 139, 0, 62, 0, 100, 0, @ACTION_MENU +16, 6, 0, 0, 62, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 7443.72, -1690.19, 194.643, 5.49535, "Shatterspear Vale");
+
+-- --------------------------------------------------------------------------------------
+-- Add return button for friendly navigation
+-- --------------------------------------------------------------------------------------
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`) VALUES
+(@GOSSIP_MENU + 1, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@GOSSIP_MENU + 2, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 0, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 1, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 2, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 3, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 4, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 5, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 6, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 7, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 8, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 9, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 10, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 11, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 12, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 13, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 14, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 15, 99, 6, 'Back', 1, 1, @GOSSIP_MENU),
+(@ACTION_MENU + 16, 99, 6, 'Back', 1, 1, @GOSSIP_MENU);

@@ -1,5 +1,6 @@
 void AddSC_pocket_portal();
 
-void AddPocketPortalScripts() {
+void Addmod_pocket_portalScripts()   
+{
     AddSC_pocket_portal();
 }
