@@ -67,7 +67,7 @@ private:
     uint64 _lastUse = 0;
 };
 
-void AddSC_pocket_portal()
+void Addmod_pocket_portalScripts()
 {
     new pocket_portal();
 }
